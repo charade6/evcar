@@ -1,5 +1,7 @@
 .footer {
   display: flex;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
   justify-content: center;
   height: 100px;
 }
@@ -8,4 +10,24 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 1280px;
+}
+footer > span {
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sns-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.sns-wrap > a {
+  font-size: 12px;
+}
+.sns-wrap > a:first-child {
+  margin-bottom: 10px;
+}
+.sns-wrap > a > img {
+  vertical-align: middle;
+  margin: -3px 6px 0 0;
+  width: 20px;
 }

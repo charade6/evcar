@@ -15,6 +15,7 @@ function Footer() {
             rel="noopener noreferrer"
           >
             <img src="./github.svg" alt="J.github" />
+            JangJiwon
           </a>
           <a
             href="https://github.com/kimdohyun97"
@@ -22,6 +23,7 @@ function Footer() {
             rel="noopener noreferrer"
           >
             <img src="./github.svg" alt="K.github" />
+            KimDohyun
           </a>
         </div>
       </footer>
