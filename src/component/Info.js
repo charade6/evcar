@@ -1,6 +1,6 @@
 import Header from "./Header"
 
-function Intro() {
+function Info() {
   return (
     <div>
       <Header />
@@ -8,4 +8,4 @@ function Intro() {
   )
 }
 
-export default Intro
+export default Info

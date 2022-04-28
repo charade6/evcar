@@ -40,7 +40,7 @@ li {
   height: 80px;
 }
 
-h1 > img {
+h1 img {
   height: 40px;
   vertical-align: sub;
 }

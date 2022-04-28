@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./Header.css"
 
 function Header() {
@@ -5,13 +6,21 @@ function Header() {
     <div className="header">
       <header id="Header">
         <h1>
-          <img src="./Logo.png" alt="Logo" />
+          <Link to="/">
+            <img src="./Logo.png" alt="Logo" />
+          </Link>
         </h1>
         <nav>
           <ul>
-            <li>전기차 소개 및 지원</li>
-            <li>전기차 검색</li>
-            <li>충전소 찾기</li>
+            <Link to="/info">
+              <li>전기차 소개 및 지원</li>
+            </Link>
+            <Link to="/search">
+              <li>전기차 검색</li>
+            </Link>
+            <Link to="/map">
+              <li>충전소 찾기</li>
+            </Link>
           </ul>
         </nav>
       </header>
