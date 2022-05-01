@@ -11,6 +11,10 @@ footer {
   align-items: center;
   width: 1280px;
 }
+footer > h1 > img {
+  height: 40px;
+  vertical-align: text-bottom;
+}
 footer > span {
   color: #888;
   font-size: 14px;
@@ -26,8 +30,7 @@ footer > span {
 .sns-wrap > a:first-child {
   margin-bottom: 10px;
 }
-.sns-wrap > a > img {
+.sns-wrap > a > .fa-ico {
   vertical-align: middle;
   margin: -3px 6px 0 0;
-  width: 20px;
 }

@@ -9,6 +9,8 @@
 a {
   color: #333;
 }
+
+/* Home */
 .youtube {
   height: 720px;
   margin-top: 80px;
@@ -17,14 +19,69 @@ a {
 .section {
   display: flex;
   justify-content: center;
+  height: 600px;
 }
 .sec-inner {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 1280px;
-  height: 600px;
-  background-color: #ddd;
+  padding: 60px;
+}
+.sec-inner h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+.section:nth-child(2) {
+  background-color: #def7de;
+}
+.section:nth-child(2) > .sec-inner > .box {
+  flex-direction: row-reverse;
+}
+.section:last-child > .sec-inner > .box img {
+  border-radius: 35px;
 }
 
+.box {
+  display: flex;
+  width: 100%;
+}
+.box > div {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.box > div:last-child {
+  flex-direction: column;
+  padding: 0 70px;
+  width: calc(50% - 140px);
+}
+.box > div > p {
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+.box > div > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  box-shadow: 0 3px 5px 0 #888;
+  border-radius: 20px;
+  transition: 0.3s;
+  width: 280px;
+  height: 70px;
+}
+.box > div > a:hover {
+  background-color: #6dee4d;
+  box-shadow: none;
+}
+
+/* subPage */
 .banner {
   margin-top: 80px;
   height: 180px;

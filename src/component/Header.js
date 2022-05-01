@@ -12,15 +12,15 @@ function Header() {
         </h1>
         <nav>
           <ul>
-            <Link to="/info">
-              <li>전기차 소개 및 지원</li>
-            </Link>
-            <Link to="/search">
-              <li>전기차 검색</li>
-            </Link>
-            <Link to="/map">
-              <li>충전소 찾기</li>
-            </Link>
+            <li>
+              <Link to="/info">전기차 소개 및 지원</Link>
+            </li>
+            <li>
+              <Link to="/search">전기차 검색</Link>
+            </li>
+            <li>
+              <Link to="/map">충전소 찾기</Link>
+            </li>
           </ul>
         </nav>
       </header>

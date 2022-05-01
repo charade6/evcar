@@ -23,10 +23,22 @@ header ul {
 header li {
   padding: 0 40px;
   display: flex;
-  font-weight: 500;
-  align-items: center;
-  font-size: 18px;
   height: 80px;
+  list-style: none;
+}
+
+header li a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+header li:hover {
+  border-bottom: 3px solid #6ed300;
+  box-sizing: border-box;
+  transition-duration: 0.1s;
 }
 
 header h1 img {

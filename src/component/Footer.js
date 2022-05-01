@@ -1,3 +1,4 @@
+import { FaGithubSquare } from "react-icons/fa"
 import "./Footer.css"
 
 function Footer() {
@@ -5,16 +6,16 @@ function Footer() {
     <div className="footer">
       <footer>
         <h1>
-          <img src="" alt="F.Logo" />
+          <img src="./F-logo.png" alt="F.Logo" />
         </h1>
-        <span>Copyright©Bit, All Rights Reserved.</span>
+        <span>Copyright &copy; Bit, All Rights Reserved.</span>
         <div className="sns-wrap">
           <a
             href="https://github.com/charade6"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="./github.svg" alt="J.github" />
+            <FaGithubSquare className="fa-ico" size="24" />
             JangJiwon
           </a>
           <a
@@ -22,7 +23,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="./github.svg" alt="K.github" />
+            <FaGithubSquare className="fa-ico" size="24" />
             KimDohyun
           </a>
         </div>
