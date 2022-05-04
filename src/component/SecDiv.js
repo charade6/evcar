@@ -6,7 +6,7 @@ function SecDiv() {
       id: 1,
       title: "전기자동차, 무엇이 궁금하세요?",
       description:
-        "전기 자동차의 작동원리 및 구조에 대한 내용과 충전 시 주의사항에 관한 내용, 전기 자동차 구매 보조금에 대한 자세한 내용을 확인하실 수 있습니다.",
+        "전기 자동차의 작동원리 및 구조에 대한 내용과\n충전 시 주의사항에 관한 내용,\n전기 자동차 구매 보조금에 대한 자세한 내용을 확인하실 수 있습니다.",
       btnTxt: "자세히 알아보기",
       btnLink: "/info",
       image: "./sec1_img.png",
@@ -39,7 +39,7 @@ function SecDiv() {
               </div>
               <div>
                 <h2>{item.title}</h2>
-                <p>{item.description}</p>
+                <pre>{item.description}</pre>
                 <Link to={item.btnLink}>{item.btnTxt}</Link>
               </div>
             </div>

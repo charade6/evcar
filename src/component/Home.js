@@ -1,6 +1,4 @@
 import YoutubeBackground from "react-youtube-background"
-import Header from "./Header"
-import Footer from "./Footer"
 import SecDiv from "./SecDiv"
 
 function Home() {
@@ -9,7 +7,6 @@ function Home() {
 
   return (
     <div>
-      <Header />
       <YoutubeBackground
         videoId={videos[index]}
         playerOptions={{
@@ -19,7 +16,6 @@ function Home() {
         className="youtube"
       />
       <SecDiv />
-      <Footer />
     </div>
   )
 }

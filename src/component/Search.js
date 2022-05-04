@@ -1,15 +1,12 @@
-import Footer from "./Footer"
-import Header from "./Header"
-
 function Search() {
   return (
     <div className="sub-page">
-      <Header />
-      <div className="banner" />
+      <div className="banner ban2" />
       <div className="main-content">
-        <h2>Search</h2>
+        <div className="cont-inner">
+          <h2>Search</h2>
+        </div>
       </div>
-      <Footer />
     </div>
   )
 }
