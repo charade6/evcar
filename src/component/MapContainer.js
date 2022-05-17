@@ -1,13 +1,16 @@
-import { useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 const { kakao } = window
 
-const MapContainer = ({ lat, lng }) => {
-  let markerArr = []
+function MapContainer(props) {
+  const [filter, setFilter] = useState("")
+  const list = props.props
 
-  for (let i = 0; i < lat.length; i++) {
-    markerArr[i] = [{ lating: new kakao.maps.LatLng(lat[i], lng[i]) }]
-  }
+  // console.log(
+  //   list.filter((list) => list.addr.indexOf("종로") !== -1)
+  //   // list.filter((list) => list.addr.indexOf(filter) !== -1).map((i) => i.lat)
+  // )
+  // console.log(list.map((p) => p.lat))
 
   useEffect(() => {
     // 카카오맵 컨테이너
@@ -18,14 +21,35 @@ const MapContainer = ({ lat, lng }) => {
     }
     const map = new kakao.maps.Map(container, options)
 
+    let clusterer = new kakao.maps.MarkerClusterer({
+      map: map,
+      averageCenter: true,
+      minLevel: 8,
+    })
+
     // 충전소 위치 마킹
-    for (let i = 0; i < markerArr.length; i++) {
+    let markers = list.map(function (position) {
       let marker = new kakao.maps.Marker({
-        map: map,
-        position: markerArr[i][0].lating,
+        position: new kakao.maps.LatLng(position.lat, position.lng),
       })
-      marker.setMap(map)
-    }
+      kakao.maps.event.addListener(marker, "click", function () {
+        let infowindow = new kakao.maps.InfoWindow({
+          content:
+            "<div style='padding:5px'>주소 : " + position.addr + "</div>",
+          removable: true,
+        })
+        infowindow.open(map, marker)
+      })
+      return marker
+    })
+
+    clusterer.addMarkers(markers)
+
+    // 클러스터 클릭시 맵 확대
+    kakao.maps.event.addListener(clusterer, "clusterclick", function (cluster) {
+      let level = map.getLevel() - 1
+      map.setLevel(level, { anchor: cluster.getCenter() })
+    })
 
     // 내위치 불러오기
     if (navigator.geolocation) {
@@ -40,20 +64,16 @@ const MapContainer = ({ lat, lng }) => {
           map.setLevel(
             (level += Math.round(Math.log(accuracy / 50) / Math.LN2))
           )
-          console.log(Math.round(Math.log(accuracy / 50) / Math.LN2))
         }
-        displayMarker(locPosition)
+        // 현재위치 마커
+        let marker = new kakao.maps.Marker({
+          map: map,
+          position: locPosition,
+        })
+        marker.setMap(map)
+        map.setCenter(locPosition)
       })
     }
-    function displayMarker(locPosition) {
-      let marker = new kakao.maps.Marker({
-        map: map,
-        position: locPosition,
-      })
-      marker.setMap(map)
-      map.setCenter(locPosition)
-    }
-    console.log(map)
 
     // 줌 컨트롤
     let zoomControl = new kakao.maps.ZoomControl()
@@ -61,14 +81,17 @@ const MapContainer = ({ lat, lng }) => {
 
     // 로드뷰
     // map.addOverlayMapTypeId(kakao.maps.MapTypeId.ROADVIEW)
+  }, [list])
 
-    // 마커생성
-    // let marker = new kakao.maps.Marker({
-    //   positions: new kakao.maps.LatLng(latArray[i], longArray[i]),
-    // })
-  }, [])
-
-  return <div id="Map"></div>
+  return (
+    <div>
+      <div style={{ position: "absolute", zIndex: "2" }}>
+        <input placeholder="지역명을 입력" />
+        <button>검색</button>
+      </div>
+      <div id="Map"></div>
+    </div>
+  )
 }
 
 export default MapContainer
