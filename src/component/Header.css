@@ -21,7 +21,7 @@ header ul {
   display: flex;
 }
 header li {
-  padding: 0 40px;
+  padding: 0 25px;
   display: flex;
   height: 80px;
   list-style: none;
@@ -33,12 +33,22 @@ header li a {
   align-items: center;
   font-weight: 500;
   font-size: 18px;
+  position: relative;
 }
 
-header li:hover {
-  border-bottom: 3px solid #6ed300;
-  box-sizing: border-box;
-  transition-duration: 0.1s;
+header li a::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  border-radius: 2px;
+  background: transparent;
+  transition: width 0.3s ease;
+}
+header li:hover a::after {
+  width: 100%;
+  background: #6ed300;
 }
 
 header h1 img {
