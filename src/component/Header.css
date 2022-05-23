@@ -52,6 +52,5 @@ header li:hover a::after {
 }
 
 header h1 img {
-  height: 40px;
   vertical-align: text-bottom;
 }
