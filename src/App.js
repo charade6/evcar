@@ -1,6 +1,9 @@
 import "./App.css"
 import Home from "./component/Home"
 import Info from "./component/Info"
+import Info2 from "./component/Info2"
+import Info3 from "./component/Info3"
+import Info4 from "./component/Info4"
 import Search from "./component/Search"
 import Map from "./component/Map"
 import Header from "./component/Header"
@@ -15,6 +18,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<Info />} />
+          <Route path="/info2" element={<Info2 />} />
+          <Route path="/info3" element={<Info3 />} />
+          <Route path="/info4" element={<Info4 />} />
           <Route path="/search" element={<Search />} />
           <Route path="/map" element={<Map />} />
         </Routes>
