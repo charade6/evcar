@@ -1,47 +1,48 @@
 import { FaSearch } from "react-icons/fa"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 
 const { kakao } = window
 
-function MapContainer({ maps }) {
+function KakaoMap(prop) {
+  const api = useRef()
+  api.current = prop.maps
   const inputRef = useRef()
-  const [searchList, setSearchList] = useState(maps)
-
-  const search = () => {
-    if (!inputRef.current.value) {
-      setSearchList(maps)
-      return
-    }
-    const searchValue = searchList.filter(
-      (list) => list.addr.indexOf(inputRef.current.value) !== -1
-    )
-    if (!searchValue.length) {
-      alert("검색 결과가 없습니다.")
-      return
-    }
-    setSearchList(searchValue)
-  }
+  const container = useRef()
+  const clusterer = useRef()
+  const [kakaoMap, setKakaoMap] = useState(null)
+  const [searchValue, setSearchValue] = useState(api.current)
 
   useEffect(() => {
     // 카카오맵 컨테이너
-    const container = document.getElementById("Map")
     const options = {
       center: new kakao.maps.LatLng(37.57002, 126.97962),
       level: 3,
     }
-    const map = new kakao.maps.Map(container, options)
+    const map = new kakao.maps.Map(container.current, options)
+    setKakaoMap(map)
 
-    let clusterer = new kakao.maps.MarkerClusterer({
+    clusterer.current = new kakao.maps.MarkerClusterer({
       map: map,
       averageCenter: true,
-      minLevel: 8,
+      minLevel: 9,
     })
-    clusterer.clear()
 
+    // 줌 컨트롤
+    let zoomControl = new kakao.maps.ZoomControl()
+    map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMRIGHT)
+  }, [])
+
+  const addMarker = useCallback(() => {
     // 충전소 위치 마킹
-    let markers = searchList.map(function (list) {
+    const markers = searchValue.map((list) => {
+      // let imageSrc =
+      //     "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png",
+      //   imageSize = new kakao.maps.Size(64, 69),
+      //   imageOption = { offset: new kakao.maps.Point(27, 69) }
+
       let marker = new kakao.maps.Marker({
         position: new kakao.maps.LatLng(list.lat, list.lng),
+        // image: new kakao.maps.markerImage(imageSrc, imageSize, imageOption),
       })
       let cType = list.chgerType
       let cStat = list.stat
@@ -73,9 +74,9 @@ function MapContainer({ maps }) {
       }
 
       if (cStat === "2") {
-        cStat = "충전 가능"
+        cStat = "<span style='color:#4caf50'>충전 가능</span>"
       } else {
-        cStat = "충전 불가"
+        cStat = "<span style='color:#f00'>충전 불가</span>"
       }
 
       const contents =
@@ -98,61 +99,59 @@ function MapContainer({ maps }) {
         content: contents,
       })
       kakao.maps.event.addListener(marker, "mouseover", function () {
-        infowindow.open(map, marker)
+        infowindow.open(kakaoMap, marker)
       })
       kakao.maps.event.addListener(marker, "mouseout", function () {
         infowindow.close()
       })
       return marker
     })
+    clusterer.current.addMarkers(markers)
+  }, [kakaoMap, searchValue])
 
-    clusterer.addMarkers(markers)
+  useEffect(() => {
+    if (kakaoMap === null) {
+      return
+    }
+    clusterer.current.clear()
+    addMarker()
 
+    // 클러스터 클릭시 맵 확대
+    kakao.maps.event.addListener(
+      clusterer.current,
+      "clusterclick",
+      function (cluster) {
+        let level = kakaoMap.getLevel() - 1
+        kakaoMap.setLevel(level, { anchor: cluster.getCenter() })
+      }
+    )
+
+    // 검색위치 맵이동
     if (inputRef.current.value) {
       let bounds = new kakao.maps.LatLngBounds()
-      let center = searchList.map(
+      let center = searchValue.map(
         (position) => new kakao.maps.LatLng(position.lat, position.lng)
       )
       for (let i = 0; i < center.length; i++) {
         bounds.extend(center[i])
       }
-      map.setBounds(bounds)
+      kakaoMap.setBounds(bounds)
     }
+  }, [kakaoMap, searchValue, addMarker])
 
-    // 클러스터 클릭시 맵 확대
-    kakao.maps.event.addListener(clusterer, "clusterclick", function (cluster) {
-      let level = map.getLevel() - 1
-      map.setLevel(level, { anchor: cluster.getCenter() })
-    })
+  const search = () => {
+    if (!inputRef.current.value) {
+      setSearchValue(api.current)
+      return
+    }
+    let flt = api.current.filter(
+      (list) => list.addr.indexOf(inputRef.current.value) !== -1
+    )
+    if (flt.length !== 0) setSearchValue(flt)
+    else alert("검색 결과가 없습니다.")
 
-    // 내위치 불러오기
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(function (pos) {
-    //     let latitude = pos.coords.latitude
-    //     let longitude = pos.coords.longitude
-    //     let accuracy = pos.coords.accuracy
-    //     let level = map.getLevel()
-    //     let locPosition = new kakao.maps.LatLng(latitude, longitude)
-    //     // 위치정확도가 낮을경우 맵레벨 증가
-    //     if (accuracy > 80) {
-    //       map.setLevel(
-    //         (level += Math.round(Math.log(accuracy / 50) / Math.LN2))
-    //       )
-    //     }
-    //     // 현재위치 마커
-    //     let marker = new kakao.maps.Marker({
-    //       map: map,
-    //       position: locPosition,
-    //     })
-    //     marker.setMap(map)
-    //     map.setCenter(locPosition)
-    //   })
-    // }
-
-    // 줌 컨트롤
-    let zoomControl = new kakao.maps.ZoomControl()
-    map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMRIGHT)
-  }, [searchList])
+    console.log(flt)
+  }
 
   return (
     <div className="map_cont">
@@ -171,9 +170,9 @@ function MapContainer({ maps }) {
           <FaSearch size="20" />
         </button>
       </div>
-      <div id="Map"></div>
+      <div id="container" ref={container}></div>
     </div>
   )
 }
 
-export default MapContainer
+export default KakaoMap

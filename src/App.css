@@ -236,7 +236,7 @@ a {
 }
 
 /* mapPage */
-#Map {
+#container {
   width: 100%;
   height: 700px;
 }
@@ -268,5 +268,5 @@ a {
   background: transparent;
 }
 .map_cont .sch_cont button > svg {
-  vertical-align: center;
+  vertical-align: middle;
 }
