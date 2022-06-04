@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react"
 import axios from "axios"
-import KakaoMap from "./KakaoMap"
+import KakaoMap from "../component/KakaoMap"
+import loadingImg from "../assets/loading.gif"
 
 function CSMap() {
   const [api, setApi] = useState(null)
@@ -24,7 +25,7 @@ function CSMap() {
       <div className="banner ban3" />
       <div className="main-content">
         <div className="cont-inner">
-          <h2>Map</h2>
+          <h2>충전소 찾기</h2>
           {isLoading ? (
             <div
               style={{
@@ -35,7 +36,7 @@ function CSMap() {
               }}
             >
               <img
-                src="./loading.gif"
+                src={loadingImg}
                 alt="loading..."
                 style={{ width: "50px", height: "50px" }}
               />

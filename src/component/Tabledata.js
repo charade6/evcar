@@ -1,5 +1,4 @@
-// import { useState } from "react"
-import subsidyList from "../asset/subsidyList.json"
+import subsidyList from "../assets/subsidyList.json"
 
 function TableData() {
   return (

@@ -1,12 +1,12 @@
 import YoutubeBackground from "react-youtube-background"
-import SecDiv from "./SecDiv"
+import SecDiv from "../component/SecDiv"
 
 function Home() {
   const videos = ["FR4gMn-jVIM", "gONEwEUVr-s", "UKttFDnKSp8"]
   let index = Math.floor(Math.random() * videos.length)
 
   return (
-    <div>
+    <>
       <YoutubeBackground
         videoId={videos[index]}
         playerOptions={{
@@ -14,9 +14,14 @@ function Home() {
           showInfo: 0,
         }}
         className="youtube"
-      />
+      >
+        <dl>
+          <dt>전기·친환경차의 시작</dt>
+          <dd>EVCAR</dd>
+        </dl>
+      </YoutubeBackground>
       <SecDiv />
-    </div>
+    </>
   )
 }
 

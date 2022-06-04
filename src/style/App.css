@@ -11,11 +11,86 @@ a {
   color: #333;
 }
 
+/* Header */
+.header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 1px 5px 0px #eee;
+}
+header {
+  width: 1280px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+header ul {
+  display: flex;
+}
+header li {
+  padding: 0 25px;
+  display: flex;
+  height: 80px;
+  list-style: none;
+}
+
+header li a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+}
+
+header li a::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  border-radius: 2px;
+  background: transparent;
+  transition: width 0.3s ease;
+}
+header li:hover a::after {
+  width: 100%;
+  background: #6ed300;
+}
+
+header h1 img {
+  vertical-align: text-bottom;
+}
+
 /* Home */
 .youtube {
   height: 720px;
   margin-top: 80px;
   background-color: rgba(0, 0, 0, 0.4);
+}
+.youtube > div {
+  position: absolute;
+  top: 65%;
+  right: 15%;
+}
+.youtube > div dl {
+  text-align: right;
+  color: #fff;
+}
+.youtube > div dl dt {
+  font-weight: 500;
+  font-size: 24px;
+}
+.youtube > div dl dd {
+  font-size: 55px;
+  font-weight: 700;
 }
 .section {
   display: flex;
@@ -36,7 +111,7 @@ a {
   margin-bottom: 50px;
 }
 .section:nth-child(2) {
-  background-color: #def7de;
+  background-color: #84d498;
 }
 .section:nth-child(2) > .sec-inner > .box {
   flex-direction: row-reverse;
@@ -73,30 +148,31 @@ a {
   align-items: center;
   font-weight: 700;
   box-shadow: 0 3px 5px 0 #888;
+  background-color: #fff;
   border-radius: 20px;
   transition: 0.3s;
   width: 280px;
   height: 70px;
 }
 .box > div > a:hover {
-  background-color: #6dee4d;
+  background-color: #fdd100;
   box-shadow: none;
 }
 
-/* subPage */
+/* Common subPage */
 .banner {
   margin-top: 80px;
   height: 180px;
   background: no-repeat center/cover;
 }
 .banner.ban1 {
-  background-image: url("../public/Banner01.svg");
+  background-image: url("../assets/Banner01.svg");
 }
 .banner.ban2 {
-  background-image: url("../public/Banner02.svg");
+  background-image: url("../assets/Banner02.svg");
 }
 .banner.ban3 {
-  background-image: url("../public/Banner03.svg");
+  background-image: url("../assets/Banner03.svg");
 }
 .sub-page {
   background-color: #f6f6f6;
@@ -128,8 +204,14 @@ a {
   background-color: #fff;
   border-right: 1px solid #eee;
 }
+.infoBox > .tab-menu h2 {
+  margin-bottom: 15px;
+  font-size: 21px;
+  text-align: center;
+}
 .infoBox > .tab-menu li {
   border-top: 1px solid #eee;
+  padding-left: 15px;
 }
 .infoBox > .tab-menu li:first-child {
   border: none;
@@ -155,8 +237,9 @@ a {
   padding-left: 25px;
   align-items: center;
   width: calc(15% - 25px);
-  font-weight: 700;
-  background-color: #6dee4d;
+  font-weight: 500;
+  color: #fff;
+  background-color: #84d498;
 }
 .search_cont .cont_detailsearch .row:first-child dt {
   border-radius: 7px 0 0 0;
@@ -274,4 +357,72 @@ a {
 }
 .map_cont .sch_cont button > svg {
   vertical-align: middle;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  justify-content: center;
+  height: 100px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1280px;
+}
+footer > h1 > img {
+  vertical-align: text-bottom;
+}
+footer > span {
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sns-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.sns-wrap > a {
+  font-size: 12px;
+}
+.sns-wrap > a:first-child {
+  margin-bottom: 10px;
+}
+.sns-wrap > a > .fa-ico {
+  vertical-align: middle;
+  margin: -3px 6px 0 0;
+}
+
+/* topButton */
+.topBtn {
+  display: none;
+  position: fixed;
+  opacity: 0;
+  bottom: 50px;
+  right: 50px;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  border: 0 none;
+  background: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+}
+
+.topBtn.active {
+  display: block;
+  z-index: 10;
+  opacity: 1;
+}
+
+.topBtn:hover,
+.topBtn:focus,
+.topBtn:active {
+  outline: 0 none;
 }

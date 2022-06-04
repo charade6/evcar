@@ -1,0 +1,269 @@
+/* 공통 */
+
+.info-cont {
+  padding: 80px;
+  background-color: #fff;
+  width: 850px;
+}
+.info-cont h1 {
+  text-align: center;
+}
+
+h3 {
+  margin: 20px 0 20px 0;
+}
+
+.subtitle {
+  margin: 30px 0 30px 0;
+  font-size: 24px;
+  text-align: left;
+}
+
+.subtitle::before {
+  content: "\27A4";
+  margin-right: 20px;
+}
+
+/* info1*/
+
+.cont1 {
+  position: relative;
+  overflow: hidden;
+}
+.cont2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.info1-2 {
+  margin-top: 60px;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.info1-2 li::before {
+  content: "\25B8";
+  margin-right: 10px;
+}
+
+.info1-3 > dt {
+  font-size: 20px;
+}
+
+.info1-3 > dd {
+  font-size: 16px;
+  line-height: 40px;
+}
+
+.info1-3 dt::before {
+  content: "\25B8";
+  margin-right: 10px;
+}
+
+.info1-3 dd {
+  text-indent: 15px;
+}
+
+.info1-3 dd::before {
+  content: "\2574";
+  margin-right: 10px;
+}
+
+.right {
+  float: right;
+  position: relative;
+  width: 440px;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.right-cont1 {
+  margin-top: 40px;
+}
+
+.right-cont2 {
+  margin-top: 190px;
+}
+
+.right-cont2 dd {
+  font-size: 13px;
+  padding-left: 4px;
+  color: #666;
+}
+
+.img1 {
+  float: left;
+  width: 400px;
+}
+.img2 {
+  float: left;
+  width: 400px;
+  height: 550px;
+}
+.img3 {
+  width: 850px;
+}
+
+/* info2 */
+.tabMenu-box {
+  margin-top: 30px;
+}
+
+.tab1 {
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  color: gray;
+  width: 280px;
+  height: 60px;
+  border: 1px solid rgb(214, 214, 214);
+  cursor: pointer;
+}
+.tab2 {
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  color: gray;
+  width: 280px;
+  height: 60px;
+  border: 1px solid rgb(214, 214, 214);
+  cursor: pointer;
+}
+.tab3 {
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  color: gray;
+  width: 280px;
+  height: 60px;
+  border: 1px solid rgb(214, 214, 214);
+  cursor: pointer;
+}
+.tab1:hover {
+  color: white;
+  background-color: rgb(132, 212, 152);
+}
+.tab2:hover {
+  color: white;
+  background-color: rgb(132, 212, 152);
+}
+.tab3:hover {
+  color: white;
+  background-color: rgb(132, 212, 152);
+}
+
+.info2-1 {
+  margin: 20px;
+  font-size: 14px;
+}
+
+.info2-1 li::before {
+  content: "\2574";
+  margin-right: 10px;
+}
+
+.img2-1 {
+  display: block;
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.img2-2 {
+  width: 400px;
+  height: 250px;
+  margin: 0 20px;
+}
+
+.img2-3 {
+  width: 400px;
+  height: 244px;
+  margin-top: 20px;
+}
+
+/* info3*/
+
+.info3-1 dt {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.info3-1 dd {
+  font-size: 13px;
+  text-indent: 10px;
+}
+
+.left-cont3-1 {
+  float: left;
+  width: 50%;
+  margin-bottom: 30px;
+  line-height: 30px;
+}
+
+.left-cont3-1 dt::before {
+  content: "\003E";
+  margin-right: 10px;
+}
+
+.left-cont3-1 dd::before {
+  content: "\2574";
+  margin-right: 5px;
+}
+
+.right-cont3-1 {
+  float: right;
+  width: 50%;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.right-cont3-1 dt::before {
+  content: "\003E";
+  margin-right: 10px;
+}
+
+.right-cont3-1 dd::before {
+  content: "\2574";
+  margin-right: 5px;
+}
+
+table {
+  margin: 0 auto;
+  width: 100%;
+  border: 0.5px solid rgb(201, 201, 201);
+}
+
+thead {
+  background-color: rgb(132, 212, 152);
+  color: white;
+}
+
+th,
+td {
+  height: 50px;
+  border: 0.5px solid rgb(201, 201, 201);
+  text-align: center;
+}
+
+/* info4 */
+.info4-1 {
+  text-indent: 10px;
+  font-size: 20px;
+}
+
+.info4-1::before {
+  content: "\003E";
+  margin-right: 10px;
+}
+
+.info4-dl dt {
+  text-indent: 15px;
+  font-size: 16px;
+}
+
+.info4-dl dd {
+  text-indent: 20px;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.info4-dl dd::before {
+  content: "\2574";
+}

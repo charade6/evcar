@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom"
-import "./info.css"
+import "../style/info.css"
+import info3Img1 from "../assets/infoimg/charge1.jpg"
+import info3Img2 from "../assets/infoimg/charge2.jpg"
+import info3Img3 from "../assets/infoimg/charge3.jpg"
+import info3Img4 from "../assets/infoimg/charge4.jpg"
 
 function Info3() {
   return (
@@ -7,6 +11,7 @@ function Info3() {
       <div className="banner ban1" />
       <div className="main-content infoBox">
         <div className="tab-menu">
+          <h2>전기차 소개 및 지원</h2>
           <ul>
             <li>
               <Link to="/info">전기차 개요</Link>
@@ -23,6 +28,7 @@ function Info3() {
           </ul>
         </div>
         <div className="info-cont">
+          <h1>전기차 충전 정보</h1>
           <h2 className="subtitle">충전속도에 따른 분류</h2>
           <div className="info3-1">
             <div className="left-cont3-1">
@@ -117,26 +123,26 @@ function Info3() {
                 <td>
                   <img
                     alt="벽부형 충전기 이미지"
-                    src="/infoimg/charge1.jpg"
+                    src={info3Img1}
                     width="100px"
                   />
                 </td>
                 <td>
                   <img
                     alt="벽부형 충전기 이미지"
-                    src="/infoimg/charge2.jpg"
+                    src={info3Img2}
                     width="150px"
                   />
                 </td>
                 <td>
                   <img
                     alt="벽부형 충전기 이미지"
-                    src="/infoimg/charge3.jpg"
+                    src={info3Img3}
                     width="120px"
                   />
                   <img
                     alt="벽부형 충전기 이미지"
-                    src="/infoimg/charge4.jpg"
+                    src={info3Img4}
                     width="120px"
                   />
                 </td>

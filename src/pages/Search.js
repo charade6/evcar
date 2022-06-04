@@ -1,5 +1,5 @@
 import { useState } from "react"
-import SearchValue from "./SearchValue"
+import SearchValue from "../component/SearchValue"
 
 function Search() {
   const [fltArr, setFltArr] = useState([])

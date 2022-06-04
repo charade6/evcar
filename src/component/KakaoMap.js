@@ -35,14 +35,8 @@ function KakaoMap(prop) {
   const addMarker = useCallback(() => {
     // 충전소 위치 마킹
     const markers = searchValue.map((list) => {
-      // let imageSrc =
-      //     "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png",
-      //   imageSize = new kakao.maps.Size(64, 69),
-      //   imageOption = { offset: new kakao.maps.Point(27, 69) }
-
       let marker = new kakao.maps.Marker({
         position: new kakao.maps.LatLng(list.lat, list.lng),
-        // image: new kakao.maps.markerImage(imageSrc, imageSize, imageOption),
       })
       let cType = list.chgerType
       let cStat = list.stat
@@ -79,21 +73,13 @@ function KakaoMap(prop) {
         cStat = "<span style='color:#f00'>충전 불가</span>"
       }
 
-      const contents =
-        "<div style='padding:5px; width:100%; font-size:14px'>" +
-        "<b style='font-size:16px'>" +
-        list.statNm +
-        "</b><br><p>주소 : " +
-        list.addr +
-        "<br>충전기타입 : " +
-        cType +
-        "<br>충전기상태 : " +
-        cStat +
-        "<br>이용시간 : " +
-        list.useTime +
-        "<br>기관연락처 : " +
-        list.busiCall +
-        "</p></div>"
+      const contents = `<div style='padding:5px; width:100%; font-size:14px'>
+        <b style='font-size:16px'>${list.statNm}</b><br>
+        <p>주소 : ${list.addr}</p>
+        <p>충전기타입 : ${cType}</p>
+        <p>충전기상태 : ${cStat}</p>        
+        <p>이용시간 : ${list.useTime}</p>        
+        <p>기관연락처 : ${list.busiCall}</p></div>`
 
       let infowindow = new kakao.maps.InfoWindow({
         content: contents,
@@ -107,6 +93,7 @@ function KakaoMap(prop) {
       return marker
     })
     clusterer.current.addMarkers(markers)
+    console.log(clusterer.current.getMarkers())
   }, [kakaoMap, searchValue])
 
   useEffect(() => {

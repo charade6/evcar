@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react"
-import evcarData from "../asset/evcarData.json"
+import evcarData from "../assets/evcarData.json"
 
 function SearchValue({ search, count }) {
   const carData = evcarData.carList
