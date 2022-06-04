@@ -15,10 +15,10 @@ function CSMap() {
       method: "get",
       url: URL,
     })
+    console.log(res)
     setApi(res.data.items[0].item)
-    console.log(res.data.items[0].item)
     setIsLoading(false)
-  }, [])
+  }, [URL])
 
   useEffect(() => {
     isLoading ? getApi() : console.log("init")
