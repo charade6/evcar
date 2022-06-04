@@ -152,9 +152,9 @@ a {
 }
 .search_cont .cont_detailsearch .row dt {
   display: flex;
-  justify-content: center;
+  padding-left: 25px;
   align-items: center;
-  width: 15%;
+  width: calc(15% - 25px);
   font-weight: 700;
   background-color: #6dee4d;
 }
@@ -185,12 +185,17 @@ a {
   border: 1px solid #ccc;
   margin-top: 80px;
 }
+.search_cont .cont_carList > p {
+  padding: 5px 0px 5px 25px;
+}
+.search_cont .cont_carList ul .nodata {
+  padding: 100px;
+  color: #777;
+  text-align: center;
+}
 .search_cont .cont_carList ul .items {
   height: 140px;
   border-top: 1px solid #eee;
-}
-.search_cont .cont_carList ul .items:first-child {
-  border: none;
 }
 .search_cont .cont_carList ul .items .item-box {
   display: flex;
