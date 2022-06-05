@@ -8,7 +8,7 @@ function CSMap() {
   const [isLoading, setIsLoading] = useState(true)
 
   const PROXY = window.location.hostname === "localhost" ? "" : "/proxy"
-  const URL = `${PROXY}B552584/EvCharger/getChargerInfo?serviceKey=gIgWSDzCeTDpTHNna3UfLVrfBmHbLPDu8IRh%2FvJuoHy5Sp1OFCc9r6uWHIqcEpCF8pWmul9zZMDQLafiKcrx3Q%3D%3D&pageNo=1&numOfRows=9999`
+  const URL = `${PROXY}/B552584/EvCharger/getChargerInfo?serviceKey=gIgWSDzCeTDpTHNna3UfLVrfBmHbLPDu8IRh%2FvJuoHy5Sp1OFCc9r6uWHIqcEpCF8pWmul9zZMDQLafiKcrx3Q%3D%3D&pageNo=1&numOfRows=9999`
 
   const getApi = useCallback(async () => {
     const res = await axios({
