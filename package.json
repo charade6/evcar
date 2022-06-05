@@ -42,5 +42,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://apis.data.go.kr/"
+  "proxy": "https://apis.data.go.kr/",
+  "homepage": "https://charade6.github.io/evcar"
 }
