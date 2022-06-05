@@ -17,15 +17,17 @@ function SecDiv() {
     {
       id: 2,
       title: "어떤 차를 원하시나요?",
-      description: "필요한 조건에 딱 맞는 전기 자동차를 찾아드립니다.",
+      description:
+        "원하는 제조사와 차급, 외형, 전비, 보조금 등의 조건에 맞춰\n나에게 딱 맞는 전기자동차를 찾아보실 수 있습니다.",
       btnTxt: "전기차 찾기",
       btnLink: "/search",
       image: img2,
     },
     {
       id: 3,
-      title: "배터리가 부족한데... 어디서 채우지?",
-      description: "근처에 있는 전기차 충전소를 찾아드립니다.",
+      title: "전기차 충전소를 찾으시나요?",
+      description:
+        "전국에 있는 전기차 충전소의 위치 및\n충전소의 운영정보를 확인하실 수 있습니다.",
       btnTxt: "검색",
       btnLink: "/map",
       image: img3,
