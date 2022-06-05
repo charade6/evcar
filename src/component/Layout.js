@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { FaGithubSquare } from "react-icons/fa"
 import TopButton from "./TopButton"
 import "../style/App.css"
-import logo from "../assets/Logo.png"
+import logo from "../assets/logo.png"
 import flogo from "../assets/F-logo.png"
 
 function Layout({ children }) {
@@ -43,7 +43,13 @@ function Layout({ children }) {
       <div className="footer">
         <footer>
           <h1>
-            <img src={flogo} alt="F.Logo" />
+            <a
+              href="https://github.com/charade6/evcar"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={flogo} alt="F.Logo" />
+            </a>
           </h1>
           <span>Copyright &copy; Bit, All Rights Reserved.</span>
           <div className="sns-wrap">
