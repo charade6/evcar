@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { FaGithubSquare } from "react-icons/fa"
 import TopButton from "./TopButton"
 import "../style/App.css"
-import logo from "../assets/logo.png"
+import logo from "../assets/Logo.png"
 import flogo from "../assets/F-logo.png"
 
 function Layout({ children }) {
