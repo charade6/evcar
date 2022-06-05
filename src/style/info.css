@@ -107,46 +107,52 @@ h3 {
 /* info2 */
 .tabMenu-box {
   margin-top: 30px;
+  border: 1px solid #d6d6d6;
 }
 
 .tab1 {
   font-size: 16px;
-  background-color: rgb(255, 255, 255);
-  color: gray;
-  width: 280px;
+  background-color: #fff;
+  color: #666;
+  width: 33.333%;
   height: 60px;
-  border: 1px solid rgb(214, 214, 214);
+  border: none;
+  border-right: 1px solid #d6d6d6;
   cursor: pointer;
 }
 .tab2 {
   font-size: 16px;
-  background-color: rgb(255, 255, 255);
-  color: gray;
-  width: 280px;
+  background-color: #fff;
+  color: #666;
+  width: 33.333%;
   height: 60px;
-  border: 1px solid rgb(214, 214, 214);
+  border: none;
+  border-right: 1px solid #d6d6d6;
   cursor: pointer;
 }
 .tab3 {
   font-size: 16px;
-  background-color: rgb(255, 255, 255);
-  color: gray;
-  width: 280px;
+  background-color: #fff;
+  color: #666;
+  width: 33.333%;
   height: 60px;
-  border: 1px solid rgb(214, 214, 214);
+  border: none;
   cursor: pointer;
 }
 .tab1:hover {
-  color: white;
-  background-color: rgb(132, 212, 152);
+  color: #fff;
+  font-weight: 700;
+  background-color: #72b34e;
 }
 .tab2:hover {
-  color: white;
-  background-color: rgb(132, 212, 152);
+  color: #fff;
+  font-weight: 700;
+  background-color: #72b34e;
 }
 .tab3:hover {
-  color: white;
-  background-color: rgb(132, 212, 152);
+  color: #fff;
+  font-weight: 700;
+  background-color: #72b34e;
 }
 
 .info2-1 {
@@ -231,7 +237,7 @@ table {
 }
 
 thead {
-  background-color: rgb(132, 212, 152);
+  background-color: #72b34e;
   color: white;
 }
 

@@ -141,11 +141,11 @@ export default function Info2() {
         </div>
         <div className="info-cont">
           <h1>보급 목적</h1>
-          <ul className="tabMenu-box">
-            {tabContArr.map((section, index) => {
+          <div className="tabMenu-box">
+            {tabContArr.map((section) => {
               return section.tabTitle
             })}
-          </ul>
+          </div>
           <div>{tabContArr[activeIndex].tabCont}</div>
         </div>
       </div>

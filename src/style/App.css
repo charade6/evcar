@@ -62,7 +62,7 @@ header li a::after {
 }
 header li:hover a::after {
   width: 100%;
-  background: #6ed300;
+  background: #72b34e;
 }
 
 header h1 img {
@@ -111,7 +111,7 @@ header h1 img {
   margin-bottom: 50px;
 }
 .section:nth-child(2) {
-  background-color: #84d498;
+  background-color: #72b34e;
 }
 .section:nth-child(2) > .sec-inner > .box {
   flex-direction: row-reverse;
@@ -123,6 +123,9 @@ header h1 img {
 .box {
   display: flex;
   width: 100%;
+}
+.section:nth-child(2) > .sec-inner > .box > div:last-child {
+  color: #fff;
 }
 .box > div {
   display: flex;
@@ -212,6 +215,9 @@ header h1 img {
 .infoBox > .tab-menu li {
   border-top: 1px solid #eee;
   padding-left: 15px;
+}
+.infoBox > .tab-menu li:hover {
+  font-weight: 500;
 }
 .infoBox > .tab-menu li:first-child {
   border: none;
