@@ -425,6 +425,7 @@ footer > span {
 .topBtn.active {
   display: block;
   z-index: 10;
+  color: #888;
   opacity: 1;
 }
 
