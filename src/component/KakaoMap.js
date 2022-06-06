@@ -128,7 +128,7 @@ function KakaoMap(prop) {
 
   const search = () => {
     if (!inputRef.current.value) {
-      alert("전체 목록을 불러옵니다\n 조금만 기다려주세요!!")
+      alert("전체 목록을 불러옵니다.\n조금만 기다려주세요")
       setSearchValue(api.current)
       return
     }
