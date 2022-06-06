@@ -128,11 +128,12 @@ function KakaoMap(prop) {
 
   const search = () => {
     if (!inputRef.current.value) {
+      alert("전체 목록을 불러옵니다\n 조금만 기다려주세요!!")
       setSearchValue(api.current)
       return
     }
-    let flt = api.current.filter(
-      (list) => list.addr.indexOf(inputRef.current.value) !== -1
+    let flt = api.current.filter((list) =>
+      list.addr.includes(inputRef.current.value)
     )
     if (flt.length !== 0) setSearchValue(flt)
     else alert("검색 결과가 없습니다.")
