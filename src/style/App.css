@@ -364,6 +364,19 @@ header h1 img {
 .map_cont .sch_cont button > svg {
   vertical-align: middle;
 }
+.map_cont .btn_cont {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+.map_cont .btn_cont button {
+  width: 42px;
+  height: 42px;
+  background: #fff url("../assets/icon_location.png") no-repeat center/24px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
 
 /* footer */
 .footer {

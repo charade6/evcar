@@ -1,5 +1,6 @@
 import { FaSearch } from "react-icons/fa"
 import { useState, useEffect, useRef, useCallback } from "react"
+import icon_marker from "../assets/icon_marker.png"
 
 const { kakao } = window
 
@@ -67,11 +68,9 @@ function KakaoMap(prop) {
           break
       }
 
-      if (cStat === "2") {
-        cStat = "<span style='color:#4caf50'>충전 가능</span>"
-      } else {
-        cStat = "<span style='color:#f00'>충전 불가</span>"
-      }
+      cStat === "2"
+        ? (cStat = "<span style='color:#4caf50'>충전 가능</span>")
+        : (cStat = "<span style='color:#f00'>충전 불가</span>")
 
       const contents = `<div style='padding:5px; width:100%; font-size:14px'>
         <b style='font-size:16px'>${list.statNm}</b><br>
@@ -93,7 +92,6 @@ function KakaoMap(prop) {
       return marker
     })
     clusterer.current.addMarkers(markers)
-    console.log(clusterer.current.getMarkers())
   }, [kakaoMap, searchValue])
 
   useEffect(() => {
@@ -128,6 +126,9 @@ function KakaoMap(prop) {
 
   const search = () => {
     if (!inputRef.current.value) {
+      if (searchValue === api.current) {
+        return
+      }
       alert("전체 목록을 불러옵니다.\n조금만 기다려주세요")
       setSearchValue(api.current)
       return
@@ -135,11 +136,41 @@ function KakaoMap(prop) {
     let flt = api.current.filter((list) =>
       list.addr.includes(inputRef.current.value)
     )
-    if (flt.length !== 0) setSearchValue(flt)
-    else alert("검색 결과가 없습니다.")
-
-    console.log(flt)
+    !flt.length ? searchValue(flt) : alert("검색 결과가 없습니다.")
   }
+
+  const findCurrentLocation = useCallback(() => {
+    // 내위치 불러오기
+    if (navigator.geolocation) {
+      const imgSrc = icon_marker,
+        imgSize = new kakao.maps.Size(42, 42)
+
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        let latitude = pos.coords.latitude
+        let longitude = pos.coords.longitude
+        let accuracy = pos.coords.accuracy
+        let level = kakaoMap.getLevel()
+        let locPosition = new kakao.maps.LatLng(latitude, longitude)
+
+        let markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize)
+        // 위치정확도가 낮을경우 맵레벨 증가
+        if (accuracy > 80) {
+          kakaoMap.setLevel(
+            (level += Math.round(Math.log(accuracy / 50) / Math.LN2))
+          )
+        }
+        // 현재위치 마커
+        let marker = new kakao.maps.Marker({
+          map: kakaoMap,
+          position: locPosition,
+          image: markerImg,
+        })
+
+        marker.setMap(kakaoMap)
+        kakaoMap.setCenter(locPosition)
+      })
+    }
+  }, [kakaoMap])
 
   return (
     <div className="map_cont">
@@ -157,6 +188,9 @@ function KakaoMap(prop) {
         <button onClick={search}>
           <FaSearch size="20" />
         </button>
+      </div>
+      <div className="btn_cont">
+        <button onClick={findCurrentLocation} />
       </div>
       <div id="container" ref={container}></div>
     </div>

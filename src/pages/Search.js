@@ -71,11 +71,11 @@ function Search() {
                   <input
                     type="checkbox"
                     onChange={(e) => {
-                      if (e.currentTarget.checked) {
-                        setFltArr(fltArr.concat({ category, value }))
-                      } else {
-                        setFltArr(fltArr.filter((item) => item.value !== value))
-                      }
+                      e.currentTarget.checked
+                        ? setFltArr(fltArr.concat({ category, value }))
+                        : setFltArr(
+                            fltArr.filter((item) => item.value !== value)
+                          )
                     }}
                   />
                   <span>{value}</span>
