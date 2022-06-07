@@ -10,6 +10,7 @@ function KakaoMap(prop) {
   const inputRef = useRef()
   const container = useRef()
   const clusterer = useRef()
+  const clMarker = useRef()
   const [kakaoMap, setKakaoMap] = useState(null)
   const [searchValue, setSearchValue] = useState(api.current)
 
@@ -98,6 +99,7 @@ function KakaoMap(prop) {
     if (kakaoMap === null) {
       return
     }
+    // 클러스터 재설정
     clusterer.current.clear()
     addMarker()
 
@@ -125,6 +127,7 @@ function KakaoMap(prop) {
   }, [kakaoMap, searchValue, addMarker])
 
   const search = () => {
+    // 검색창에 값이 없을경우
     if (!inputRef.current.value) {
       if (searchValue === api.current) {
         return
@@ -136,10 +139,15 @@ function KakaoMap(prop) {
     let flt = api.current.filter((list) =>
       list.addr.includes(inputRef.current.value)
     )
-    !flt.length ? searchValue(flt) : alert("검색 결과가 없습니다.")
+    flt.length ? setSearchValue(flt) : alert("검색 결과가 없습니다.")
   }
 
   const findCurrentLocation = useCallback(() => {
+    // 내위치 마커가 있다면 삭제
+    if (clMarker.current) {
+      clMarker.current.setMap(null)
+    }
+
     // 내위치 불러오기
     if (navigator.geolocation) {
       const imgSrc = icon_marker,
@@ -160,13 +168,13 @@ function KakaoMap(prop) {
           )
         }
         // 현재위치 마커
-        let marker = new kakao.maps.Marker({
+        clMarker.current = new kakao.maps.Marker({
           map: kakaoMap,
           position: locPosition,
           image: markerImg,
         })
 
-        marker.setMap(kakaoMap)
+        clMarker.current.setMap(kakaoMap)
         kakaoMap.setCenter(locPosition)
       })
     }
