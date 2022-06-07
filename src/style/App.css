@@ -303,7 +303,7 @@ header h1 img {
   display: flex;
   flex-direction: column;
 }
-.search_cont .cont_carList ul .items .item-box .item-detail p {
+.search_cont .cont_carList ul .items .item-box .item-detail a {
   font-weight: 700;
 }
 .search_cont .cont_carList ul .items .item-box .item-detail .spec {

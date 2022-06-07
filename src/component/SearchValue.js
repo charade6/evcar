@@ -79,14 +79,16 @@ function SearchValue({ search, count }) {
           return (
             <li className="items" key={index}>
               <div className="item-box">
-                <img src={e.img} alt={e.name} />
+                <a href={e.link} target="_blank" rel="noopener noreferrer">
+                  <img src={e.img} alt={e.name} />
+                </a>
 
                 <div className="item-detail">
-                  <p>
+                  <a href={e.link} target="_blank" rel="noopener noreferrer">
                     {e.maker}
                     &nbsp;&nbsp;
                     {e.name}
-                  </p>
+                  </a>
                   <div className="spec">
                     <span>
                       {e.vehicleScale}/{e.vehicleType}
