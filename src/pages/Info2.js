@@ -1,4 +1,3 @@
-import "../style/info.css"
 import info2Img1 from "../assets/infoimg/info2img1.jpg"
 import info2Img2 from "../assets/infoimg/info2img2.jpg"
 import info2Img3 from "../assets/infoimg/info2img3.jpg"
@@ -6,19 +5,15 @@ import info2Img4 from "../assets/infoimg/info2img4.jpg"
 import info2Img5 from "../assets/infoimg/info2img5.jpg"
 import info2Img6 from "../assets/infoimg/info2img6.jpg"
 import info2Img7 from "../assets/infoimg/info2img7.jpg"
-import { Link } from "react-router-dom"
-import React, { useState } from "react"
 
-export default function Info2() {
+import { useState } from "react"
+
+function Info2() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const tabContArr = [
     {
-      tabTitle: (
-        <button className="tab1" onClick={() => tabClickHandler(0)}>
-          환경적 측면
-        </button>
-      ),
+      tabTitle: "환경적 측면",
       tabCont: (
         <div>
           <h2 className="subtitle">자동차로 인한 대기오염 해결</h2>
@@ -52,16 +47,12 @@ export default function Info2() {
             </li>
           </ul>
           <img className="img2-2" src={info2Img2} alt="img3" />
-          <img className="img2-3" src={info2Img3} alt="img4" />
+          <img className="img2-2" src={info2Img3} alt="img4" />
         </div>
       ),
     },
     {
-      tabTitle: (
-        <button className="tab2" onClick={() => tabClickHandler(1)}>
-          경제적 측면
-        </button>
-      ),
+      tabTitle: "경제적 측면",
       tabCont: (
         <div>
           <h2 className="subtitle">전기차 연료비(개인용완속충전기 기준)</h2>
@@ -84,11 +75,7 @@ export default function Info2() {
       ),
     },
     {
-      tabTitle: (
-        <button className="tab3" onClick={() => tabClickHandler(2)}>
-          산업적 측면
-        </button>
-      ),
+      tabTitle: "산업적 측면",
       tabCont: (
         <div>
           <h2 className="subtitle">전기차와 V2G</h2>
@@ -114,41 +101,25 @@ export default function Info2() {
     },
   ]
 
-  const tabClickHandler = (index) => {
-    setActiveIndex(index)
-  }
-
   return (
-    <div className="sub-page">
-      <div className="banner ban1" />
-      <div className="main-content infoBox">
-        <div className="tab-menu">
-          <h2>전기차 소개 및 지원</h2>
-          <ul>
-            <li>
-              <Link to="/info">전기차 개요</Link>
-            </li>
-            <li>
-              <Link to="/info2">보급 목적</Link>
-            </li>
-            <li>
-              <Link to="/info3">전기차 충전 정보</Link>
-            </li>
-            <li>
-              <Link to="/info4">보조금 지원</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="info-cont">
-          <h1>보급 목적</h1>
-          <div className="tabMenu-box">
-            {tabContArr.map((section) => {
-              return section.tabTitle
-            })}
-          </div>
-          <div>{tabContArr[activeIndex].tabCont}</div>
-        </div>
+    <>
+      <h1>보급 목적</h1>
+      <div className="tabMenu-box">
+        {tabContArr.map((value, index) => {
+          return (
+            <button
+              key={index}
+              className={index === activeIndex ? "tabMenu active" : "tabMenu"}
+              onClick={() => setActiveIndex(index)}
+            >
+              {value.tabTitle}
+            </button>
+          )
+        })}
       </div>
-    </div>
+      <div>{tabContArr[activeIndex].tabCont}</div>
+    </>
   )
 }
+
+export default Info2

@@ -218,6 +218,7 @@ header h1 img {
 }
 .infoBox > .tab-menu li:hover {
   font-weight: 500;
+  cursor: pointer;
 }
 .infoBox > .tab-menu li:first-child {
   border: none;

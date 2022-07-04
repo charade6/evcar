@@ -97,59 +97,35 @@ h3 {
 }
 .img2 {
   float: left;
-  width: 400px;
-  height: 550px;
 }
 .img3 {
-  width: 850px;
+  width: 100%;
+}
+.img4 {
+  width: 100%;
 }
 
 /* info2 */
 .tabMenu-box {
   margin-top: 30px;
-  border: 1px solid #d6d6d6;
+  width: 100%;
 }
 
-.tab1 {
+.tabMenu {
   font-size: 16px;
   background-color: #fff;
   color: #666;
   width: 33.333%;
   height: 60px;
-  border: none;
-  border-right: 1px solid #d6d6d6;
+  border: 1px solid #d6d6d6;
+  border-left: none;
   cursor: pointer;
 }
-.tab2 {
-  font-size: 16px;
-  background-color: #fff;
-  color: #666;
-  width: 33.333%;
-  height: 60px;
-  border: none;
-  border-right: 1px solid #d6d6d6;
-  cursor: pointer;
+.tabMenu:first-child {
+  border-left: 1px solid #d6d6d6;
 }
-.tab3 {
-  font-size: 16px;
-  background-color: #fff;
-  color: #666;
-  width: 33.333%;
-  height: 60px;
-  border: none;
-  cursor: pointer;
-}
-.tab1:hover {
-  color: #fff;
-  font-weight: 700;
-  background-color: #72b34e;
-}
-.tab2:hover {
-  color: #fff;
-  font-weight: 700;
-  background-color: #72b34e;
-}
-.tab3:hover {
+.tabMenu:hover,
+.tabMenu.active {
   color: #fff;
   font-weight: 700;
   background-color: #72b34e;
@@ -166,25 +142,20 @@ h3 {
 }
 
 .img2-1 {
-  display: block;
-  width: 800px;
-  height: 500px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .img2-2 {
-  width: 400px;
+  width: 50%;
   height: 250px;
-  margin: 0 20px;
-}
-
-.img2-3 {
-  width: 400px;
-  height: 244px;
-  margin-top: 20px;
 }
 
 /* info3*/
+
+.info3-1 {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
 
 .info3-1 dt {
   font-size: 18px;
@@ -199,7 +170,6 @@ h3 {
 .left-cont3-1 {
   float: left;
   width: 50%;
-  margin-bottom: 30px;
   line-height: 30px;
 }
 
@@ -233,7 +203,7 @@ h3 {
 table {
   margin: 0 auto;
   width: 100%;
-  border: 0.5px solid rgb(201, 201, 201);
+  border: 1px solid rgb(201, 201, 201);
 }
 
 thead {
