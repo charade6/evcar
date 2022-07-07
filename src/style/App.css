@@ -189,9 +189,11 @@ header h1 img {
   padding: 80px;
   background-color: #fff;
 }
-.cont-inner > h2 {
+.cont-inner.info {
+  width: 80%;
+}
+.cont-inner > h1 {
   margin-bottom: 30px;
-  font-size: 32px;
   text-align: center;
 }
 
@@ -424,7 +426,6 @@ footer > span {
 
 /* topButton */
 .topBtn {
-  display: none;
   position: fixed;
   opacity: 0;
   bottom: 50px;
@@ -437,15 +438,14 @@ footer > span {
   font-size: 18px;
   font-weight: bold;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
   transition: opacity 0.3s ease-in;
 }
 
 .topBtn.active {
-  display: block;
   z-index: 10;
   color: #444;
   opacity: 1;
+  cursor: pointer;
 }
 
 .topBtn:hover,

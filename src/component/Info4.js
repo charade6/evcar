@@ -1,8 +1,9 @@
 import subsidyList from "../assets/subsidyList.json"
 
-function TableData() {
+function Info4() {
   return (
-    <div>
+    <>
+      <h1>보조금 지원</h1>
       <div>
         <h2 className="subtitle">구매보조금 지원</h2>
         <h3 className="info4-1">보조금 지원 대상</h3>
@@ -50,8 +51,8 @@ function TableData() {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   )
 }
 
-export default TableData
+export default Info4

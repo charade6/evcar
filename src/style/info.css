@@ -1,18 +1,5 @@
 /* 공통 */
 
-.info-cont {
-  padding: 80px;
-  background-color: #fff;
-  width: 850px;
-}
-.info-cont h1 {
-  text-align: center;
-}
-
-h3 {
-  margin: 20px 0 20px 0;
-}
-
 .subtitle {
   margin: 30px 0 30px 0;
   font-size: 24px;

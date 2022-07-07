@@ -1,9 +1,9 @@
 import { useState } from "react"
 import "../style/info.css"
-import Info1 from "./Info1"
-import Info2 from "./Info2"
-import Info3 from "./Info3"
-import Info4 from "./Info4"
+import Info1 from "../component/Info1"
+import Info2 from "../component/Info2"
+import Info3 from "../component/Info3"
+import Info4 from "../component/Info4"
 
 function Info() {
   const tab = {
@@ -38,7 +38,7 @@ function Info() {
             })}
           </ul>
         </div>
-        <div className="info-cont">{tab[activeTab]}</div>
+        <div className="cont-inner info">{tab[activeTab]}</div>
       </div>
     </div>
   )

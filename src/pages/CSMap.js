@@ -28,7 +28,7 @@ function CSMap() {
       <div className="banner ban3" />
       <div className="main-content">
         <div className="cont-inner">
-          <h2>충전소 찾기</h2>
+          <h1>충전소 찾기</h1>
           {isLoading ? (
             <div
               style={{
